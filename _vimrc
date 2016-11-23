@@ -51,7 +51,12 @@ Plugin 'dkprice/vim-easygrep'
 Plugin 'rking/ag.vim'
 
 "gruvbox color scheme
-Plugin 'morhetz/gruvbox'
+"Plugin 'morhetz/gruvbox'
+
+"Plugin 'sickill/vim-monokai'
+"Plugin 'solarized/twilight'
+
+Plugin 'vim-scripts/candy.vim'
 
 "highlight
 Plugin 'jaxbot/semantic-highlight.vim'
@@ -60,7 +65,7 @@ Plugin 'jaxbot/semantic-highlight.vim'
 Plugin 'skywind3000/asyncrun.vim'
 
 "YouCompleteMe
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 
 "gen tags
 "Plugin 'jsfaint/gen_tags.vim' 
@@ -138,7 +143,10 @@ syntax on
 set laststatus=2
 set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}
 "Set Color Scheme and Font Options
-colorscheme gruvbox 
+"colorscheme gruvbox 
+"colorscheme monokai 
+"colorscheme twilight 
+colorscheme candy 
 set guifont=Consolas:h12
 "set line no, buffer, search, highlight, autoindent and more.
 set nu
@@ -167,6 +175,7 @@ set colorcolumn=110
 set guifont=Consolas:h10
 highlight ColorColumn ctermbg=darkgray
 set bg=dark
+set backupdir=e:\study\vimswap
 
 "Plugins ...................................
 " NERDTree
@@ -181,19 +190,14 @@ let Tlist_Exit_OnlyWindow=1
 let Tlist_Use_Right_Window=0
 map <silent> <F9> :TlistToggle<cr>
 
-" CTAGS
-nmap <silent> <F6> <ESC>:!ctags -R *<CR> 
-imap <silent> <F6> <ESC>:w<CR>:!ctags -R *<CR> 
-
-let
-$PPLIBTAGS='$ROOT\powerplay\hwmgr\tags,$ROOT\powerplay\eventmgr\tags,$ROOT\powerplay\statemgr\tags,$ROOT\powerplay\inc\tags,$ROOT\powerplay\support\tags,'
-
 "set tags='$PPLIBTAGS'
 set tags=e:\depot\pplib\drivers\powerplay\*\tags
 
 "minibufexpl
 map <silent> <F7> <ESC>:MBEToggle!<CR>
 
+" Gtags
+map <silent> <F6> <ESC>:GtagsCursor<cr>
 "easymotion
 map <leader> <Plug>(easymotion-prefix)
 map <leader>s <Plug>(easymotion-sn)
@@ -208,10 +212,10 @@ let g:EasyMotion_smartcase=1
 "map <Leader>h <Plug>(easymotion-linebackward)
 
 map <leader>r <Plug>(easymotion-repeat)
-nmap <right> <Plug>(easymotion-lineforward)
-nmap <down> <Plug>(easymotion-j)
-nmap <up> <Plug>(easymotion-k)
-nmap <left> <Plug>(easymotion-linebackward)
+"nmap <right> <Plug>(easymotion-lineforward)
+"nmap <down> <Plug>(easymotion-j)
+"nmap <up> <Plug>(easymotion-k)
+"nmap <left> <Plug>(easymotion-linebackward)
 nmap f <plug>(easymotion-f)
 nmap F <plug>(easymotion-F)
 "ctrlp
@@ -258,7 +262,11 @@ set cscopetag
 set csprg=gtags-cscope
 cs add GTAGS
 
-let GtagsCscope_Auto_Load=1
-let CtagsCscope_Auto_Map=1
-let GtagsCscope_Quiet=1
+"let GtagsCscope_Auto_Load=1
+"let CtagsCscope_Auto_Map=1
+"let GtagsCscope_Quiet=1
 
+let Gtags_VerticalWindow=0 
+" Gtags_Auto_Map         
+let Gtags_Auto_Update=0 
+let Gtags_No_Auto_Jump=1 
