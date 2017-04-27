@@ -73,6 +73,9 @@ Plugin 'skywind3000/asyncrun.vim'
 "gtags
 Plugin 'aceofall/gtags.vim'
 
+"syntastic
+Plugin 'scrooloose/syntastic.git'
+
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
 "Plugin 'tpope/vim-fugitive'
